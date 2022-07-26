@@ -11,20 +11,42 @@ class App extends React.Component {
       cardAttr1: '',
       cardAttr2: '',
       cardAttr3: '',
-      cardImage: 'https://st.depositphotos.com/2290789/3667/i/600/depositphotos_36675429-stock-photo-king-lion-aslan.jpg',
+      cardImage: '',
       cardRare: '',
       cardTrunfo: false,
-      isSaveButtonDisabled: false,
+      isSaveButtonDisabled: true,
     };
   }
+
+  validacao = () => {
+    const {
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+    } = this.state;
+    const a = Math.floor(cardAttr1);
+    const b = Math.floor(cardAttr2);
+    const c = Math.floor(cardAttr3);
+    const math = a + b + c;
+    const d = 210;
+    if (Object.values(this.state).includes('')
+      || cardAttr1 > '90'
+      || cardAttr1 < '0'
+      || cardAttr2 > '90'
+      || cardAttr2 < '0'
+      || cardAttr3 > '90'
+      || cardAttr3 < '0'
+      || math > d
+    ) {
+      this.setState({ isSaveButtonDisabled: true });
+    } else { this.setState({ isSaveButtonDisabled: false }); }
+  };
 
   onInputChange = ({ target }) => {
     const { name } = target;
     let { value } = target;
     if (name === 'cardTrunfo') value = target.checked;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value }, () => { this.validacao(); });
   };
 
   onSaveButtonClick = (event) => {

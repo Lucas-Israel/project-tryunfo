@@ -11,7 +11,7 @@ class BtnSave extends React.Component {
         disabled={ isSaveButtonDisabled }
         onClick={ onSaveButtonClick }
       >
-        Save
+        salvar
       </button>
     );
   }

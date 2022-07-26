@@ -16,6 +16,7 @@ class Atributo3 extends React.Component {
             value={ cardAttr3 }
             name="cardAttr3"
             onChange={ onChange }
+            max="90"
           />
         </label>
         <hr />
