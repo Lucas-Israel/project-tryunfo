@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
+// import Trunfado from './components/Trunfado';
 
 class App extends React.Component {
   constructor() {
@@ -15,7 +16,15 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
+      cartas: [],
+      hasTrunfo: false,
     };
+  }
+
+  trunfoCheck = () => {
+    const { cartas } = this.state;
+    const value = cartas.map((element) => element.cardTrunfo === true).includes(true);
+    this.setState({ hasTrunfo: value });
   }
 
   validacao = () => {
@@ -59,7 +68,30 @@ class App extends React.Component {
       cardAttr2: '0',
       cardAttr3: '0',
       cardRare: 'normal',
+      cardTrunfo: false,
     });
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    } = this.state;
+    this.setState((before) => ({
+      cartas: [...before.cartas, {
+        cardName,
+        cardDescription,
+        cardAttr1,
+        cardAttr2,
+        cardAttr3,
+        cardImage,
+        cardRare,
+        cardTrunfo,
+      }],
+    }), () => { this.trunfoCheck(); });
   }
 
   render() {
@@ -73,6 +105,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
+      hasTrunfo,
     } = this.state;
 
     return (
@@ -91,6 +124,7 @@ class App extends React.Component {
             isSaveButtonDisabled={ isSaveButtonDisabled }
             onInputChange={ this.onInputChange }
             onSaveButtonClick={ this.onSaveButtonClick }
+            hasTrunfo={ hasTrunfo }
           />
           <Card
             cardName={ cardName }
@@ -103,6 +137,7 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
           />
         </div>
+        {/* <Trunfado trunfou={ trunfoReal } /> */}
       </div>
     );
   }

@@ -18,7 +18,6 @@ class Strunfo extends React.Component {
             onChange={ onChange }
           />
         </label>
-        <hr />
       </div>
     );
   }
