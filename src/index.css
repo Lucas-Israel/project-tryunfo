@@ -41,9 +41,10 @@ code {
 .card {
   display: flex;
   flex-direction: column;
+  margin: 10px;
 }
 
-.name , .descrip , .attr1 , .attr2 , .attr3 , .raridade {
+.name , .descrip , .attr1 , .attr2 , .attr3 , .raridade , .cardRName {
   height: 20px;
   background-color: red;
 }
@@ -62,5 +63,13 @@ p {
 .card {
   padding: 5px;
   background-color: green;
-  max-height: 425px;
+  height: 425px;
+  width: 200px;
+}
+
+.cardRender
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

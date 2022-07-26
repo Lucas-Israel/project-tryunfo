@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './components/Card';
+import CardRender from './components/CardRender';
 import Form from './components/Form';
 // import Trunfado from './components/Trunfado';
 
@@ -106,6 +107,7 @@ class App extends React.Component {
       cardTrunfo,
       isSaveButtonDisabled,
       hasTrunfo,
+      cartas,
     } = this.state;
 
     return (
@@ -137,7 +139,7 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
           />
         </div>
-        {/* <Trunfado trunfou={ trunfoReal } /> */}
+        <CardRender cartas={ cartas } />
       </div>
     );
   }
