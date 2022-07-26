@@ -33,7 +33,7 @@ class Form extends React.Component {
     } = this.props;
 
     return (
-      <form>
+      <form className="form">
         <div>
           <Input cardName={ cardName } oninputChange={ onInputChange } />
           <TextArea cardDescription={ cardDescription } onChange={ onInputChange } />

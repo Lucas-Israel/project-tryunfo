@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from './components/Card';
 import Form from './components/Form';
 
 class App extends React.Component {
@@ -10,7 +11,7 @@ class App extends React.Component {
       cardAttr1: '',
       cardAttr2: '',
       cardAttr3: '',
-      cardImage: '',
+      cardImage: 'https://st.depositphotos.com/2290789/3667/i/600/depositphotos_36675429-stock-photo-king-lion-aslan.jpg',
       cardRare: '',
       cardTrunfo: false,
       isSaveButtonDisabled: false,
@@ -27,7 +28,7 @@ class App extends React.Component {
   };
 
   onSaveButtonClick = (event) => {
-    event.target.preventDefault();
+    event.preventDefault();
   }
 
   render() {
@@ -44,21 +45,33 @@ class App extends React.Component {
     } = this.state;
 
     return (
-      <div>
-        <h1>Tryunfo</h1>
-        <Form
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.onSaveButtonClick }
-        />
+      <div className="avo">
+        <h1 className="h1">Tryunfo</h1>
+        <div className="pai">
+          <Form
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            onInputChange={ this.onInputChange }
+            onSaveButtonClick={ this.onSaveButtonClick }
+          />
+          <Card
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+          />
+        </div>
       </div>
     );
   }

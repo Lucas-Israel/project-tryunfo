@@ -11,3 +11,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.avo {
+  display: flex;
+  flex-direction: column;
+}
+
+.h1 {
+  display: flex;
+  align-self: center;
+}
+
+.pai {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagem {
+  width: 200px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.name , .descrip , .attr1 , .attr2 , .attr3 , .raridade {
+  height: 20px;
+  background-color: red;
+}
+
+.descrip {
+  min-height: 60px;
+  max-height: 60px;
+  min-width: 200px;
+  max-width: 200px;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+.card {
+  padding: 5px;
+  background-color: green;
+  max-height: 425px;
+}
