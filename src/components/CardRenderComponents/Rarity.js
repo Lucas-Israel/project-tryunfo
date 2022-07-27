@@ -5,9 +5,9 @@ class Rarity extends React.Component {
   render() {
     const { cardRare } = this.props;
     return (
-      <p key={ cardRare } className="raridade">
+      <div key={ cardRare } className="raridade p">
         {cardRare}
-      </p>
+      </div>
     );
   }
 }

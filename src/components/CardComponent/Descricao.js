@@ -5,9 +5,9 @@ class Descricao extends React.Component {
   render() {
     const { descricao } = this.props;
     return (
-      <p data-testid="description-card" className="descrip">
+      <div data-testid="description-card" className="descrip p">
         {descricao}
-      </p>
+      </div>
     );
   }
 }

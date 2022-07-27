@@ -5,9 +5,12 @@ class Atributo3 extends React.Component {
   render() {
     const { attr } = this.props;
     return (
-      <p data-testid="attr3-card" className="attr3">
-        {attr}
-      </p>
+      <div data-testid="attr3-card" className="attr3 p">
+        <div className="attrs">
+          <div className="attrT">Defense</div>
+          <div className="attrA">{attr}</div>
+        </div>
+      </div>
     );
   }
 }

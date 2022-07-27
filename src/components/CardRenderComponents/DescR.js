@@ -5,9 +5,9 @@ class DescR extends React.Component {
   render() {
     const { cardDescription } = this.props;
     return (
-      <p key={ cardDescription } className="descrip">
+      <div key={ cardDescription } className="descrip p">
         {cardDescription}
-      </p>
+      </div>
     );
   }
 }

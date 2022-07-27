@@ -23,7 +23,7 @@ class SingleCard extends React.Component {
       cardTrunfo,
     } = cartas;
     return (
-      <div className="card">
+      <div className="card cardIdentifier">
         <NameR cardName={ cardName } />
         <Rarity cardRare={ cardRare } />
         <ImageR cardName={ cardName } cardImage={ cardImage } />

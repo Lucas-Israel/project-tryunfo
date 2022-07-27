@@ -5,12 +5,12 @@ class Name extends React.Component {
   render() {
     const { name } = this.props;
     return (
-      <p
+      <div
         data-testid="name-card"
-        className="name"
+        className="name p"
       >
         {name}
-      </p>
+      </div>
     );
   }
 }

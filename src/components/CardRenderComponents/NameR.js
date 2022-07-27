@@ -5,9 +5,9 @@ class NameR extends React.Component {
   render() {
     const { cardName } = this.props;
     return (
-      <p key={ cardName } className="name">
+      <div key={ cardName } className="name p">
         {cardName}
-      </p>
+      </div>
     );
   }
 }

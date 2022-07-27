@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './components/Card';
 import CardRender from './components/CardRender';
+import NameFilter from './components/Filters/NameFilter';
 import Form from './components/Form';
 
 class App extends React.Component {
@@ -18,6 +19,8 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       cartas: [],
       hasTrunfo: false,
+      filtro: [],
+      bool: true,
     };
   }
 
@@ -102,6 +105,15 @@ class App extends React.Component {
     }), () => { this.trunfoCheck(); });
   }
 
+  nFilter = ({ target }) => {
+    const { cartas } = this.state;
+    const filtrado = cartas.filter((carta) => carta.cardName.includes(target.value));
+    this.setState({
+      filtro: filtrado,
+      bool: target.value.length <= 0,
+    });
+  };
+
   render() {
     const {
       cardName,
@@ -115,6 +127,8 @@ class App extends React.Component {
       isSaveButtonDisabled,
       hasTrunfo,
       cartas,
+      filtro,
+      bool,
     } = this.state;
 
     return (
@@ -146,7 +160,18 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
           />
         </div>
-        <CardRender cartas={ cartas } hndlDel={ this.hndlDel } />
+        <div className="issonaoacaba">
+          <div className="filtersSection">
+            Filtros
+            <div className="filters">
+              <NameFilter nFilter={ this.nFilter } />
+            </div>
+          </div>
+        </div>
+        <CardRender
+          cartas={ filtro.length < 1 && bool ? cartas : filtro }
+          hndlDel={ this.hndlDel }
+        />
       </div>
     );
   }
