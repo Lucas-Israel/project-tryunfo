@@ -10,7 +10,7 @@ class NameFilter extends React.Component {
         <input
           type="text"
           id="namefilter"
-          onChange={ nFilter }
+          onChange={ ({ target }) => nFilter('cardName', target) }
           data-testid="name-filter"
         />
       </label>

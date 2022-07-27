@@ -3,6 +3,7 @@ import Card from './components/Card';
 import CardRender from './components/CardRender';
 import NameFilter from './components/Filters/NameFilter';
 import Form from './components/Form';
+import RarityFilter from './components/Filters/RarityFilter';
 
 class App extends React.Component {
   constructor() {
@@ -105,9 +106,18 @@ class App extends React.Component {
     }), () => { this.trunfoCheck(); });
   }
 
-  nFilter = ({ target }) => {
+  nFilter = (param, target) => {
     const { cartas } = this.state;
-    const filtrado = cartas.filter((carta) => carta.cardName.includes(target.value));
+    let filtrado = cartas.filter((carta) => (param === 'cardRare'
+      ? target.value === carta[param]
+      : carta[param].includes(target.value)));
+    if (target.value === 'todas') {
+      filtrado = [];
+      return this.setState({
+        filtro: filtrado,
+        bool: true,
+      });
+    }
     this.setState({
       filtro: filtrado,
       bool: target.value.length <= 0,
@@ -165,6 +175,7 @@ class App extends React.Component {
             Filtros
             <div className="filters">
               <NameFilter nFilter={ this.nFilter } />
+              <RarityFilter nFilter={ this.nFilter } />
             </div>
           </div>
         </div>
