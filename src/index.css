@@ -35,13 +35,23 @@ code {
 }
 
 .imagem {
-  width: 200px;
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  background-color: greenyellow;
+  margin-bottom: 10px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   margin: 10px;
+  padding: 5px;
+  background-color: green;
+  height: 435px;
+  width: 200px;
+  border-radius: 7px;
 }
 
 .name , .descrip , .attr1 , .attr2 , .attr3 , .raridade , .cardRName {
@@ -60,16 +70,16 @@ p {
   margin: 0 0 10px 0;
 }
 
-.card {
-  padding: 5px;
-  background-color: green;
-  height: 425px;
-  width: 200px;
-}
-
 .cardRender
 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+.divDel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

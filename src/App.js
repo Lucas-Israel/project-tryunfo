@@ -2,7 +2,6 @@ import React from 'react';
 import Card from './components/Card';
 import CardRender from './components/CardRender';
 import Form from './components/Form';
-// import Trunfado from './components/Trunfado';
 
 class App extends React.Component {
   constructor() {
@@ -26,6 +25,14 @@ class App extends React.Component {
     const { cartas } = this.state;
     const value = cartas.map((element) => element.cardTrunfo === true).includes(true);
     this.setState({ hasTrunfo: value });
+  }
+
+  hndlDel = ({ target }) => {
+    const { cartas } = this.state;
+    const cartaId = target.parentNode.parentNode.id;
+    const carta = Math.floor(document.getElementById(cartaId).id);
+    this.setState({ cartas: cartas.filter((cart) => cart !== cartas[carta]) },
+      () => { this.trunfoCheck(); });
   }
 
   validacao = () => {
@@ -139,7 +146,7 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
           />
         </div>
-        <CardRender cartas={ cartas } />
+        <CardRender cartas={ cartas } hndlDel={ this.hndlDel } />
       </div>
     );
   }
