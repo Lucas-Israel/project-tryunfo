@@ -34,6 +34,10 @@ code {
   align-items: center;
 }
 
+#textarea {
+  resize: none;
+}
+
 .imagem {
   min-width: 200px;
   min-height: 200px;
@@ -60,6 +64,11 @@ code {
   background-color:rgb(40, 120, 255);
 }
 
+.name, .imagem {
+  overflow-y: auto;
+  overflow: hidden;
+}
+
 .attrs {
   display: flex;
   flex-direction: row;
@@ -67,6 +76,8 @@ code {
 }
 
 .descrip {
+  word-wrap: break-word;
+  overflow-y: auto;
   min-height: 60px;
   max-height: 60px;
   min-width: 190px;
